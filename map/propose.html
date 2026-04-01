@@ -21,7 +21,7 @@
   </header>
   <main class="events-page">
     <section class="propose-form-section">
-      <h1>Proposer un événement</h1>
+      <h1>Mettre de l'huile sur le feu</h1>
       <form id="propose-form">
         <input type="text" id="propose-title" name="title" placeholder="Titre" required>
         <input type="text" id="propose-artist" name="artist" placeholder="Nom d'artiste" required>
@@ -53,7 +53,16 @@
         return;
       }
 
-      const newEvent = { lat: 50.8503, lng: 4.3517, title, artist, description, date, time, place, address };
+      // Cœur paramétrique autour de Bruxelles
+      const stored2 = JSON.parse(localStorage.getItem('oups-events-v1') || '[]');
+      const n = stored2.length;
+      const t = (n / 40) * 2 * Math.PI; // 40 points pour un cœur complet
+      const scale = 0.006;
+      const heartX = 16 * Math.pow(Math.sin(t), 3);
+      const heartY = 13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t);
+      const offsetLat = heartY / 16 * scale;
+      const offsetLng = heartX / 16 * scale;
+      const newEvent = { lat: 50.8503 + offsetLat, lng: 4.3517 + offsetLng, title, artist, description, date, time, place, address };
 
       function saveAndRedirect(ev) {
         const stored = JSON.parse(localStorage.getItem('oups-events-v1') || '[]');

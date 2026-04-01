@@ -63,38 +63,48 @@ infoControl.addTo(map);
 var creditsVisible = false;
 var creditsPopup = null;
 
+function formatDate(dateStr) {
+  if (!dateStr) return '';
+  const months = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+  const parts = dateStr.split('-');
+  if (parts.length !== 3) return dateStr;
+  const day = parseInt(parts[2], 10);
+  const month = months[parseInt(parts[1], 10) - 1];
+  const year = parts[0];
+  return `${day} ${month} ${year}`;
+}
+
 function showEventInfo(event) {
   panel.style.display = 'none';
   panel.classList.add('hidden');
-  let html = `<div class="event-info-header"><h3>${event.title}</h3><button id="close-info" aria-label="Fermer">✕</button></div>`;
+  let html = `<div class="event-info-header"><h2>${event.title}</h2><button id="close-info" aria-label="Fermer">✕</button></div>`;
   if (event.artist) {
-    html += `<p><strong>Artiste :</strong> ${event.artist}</p>`;
+    html += `<p>${event.artist}</p>`;
   }
   if (event.date && event.time) {
-    html += `<p><strong>Date et heure :</strong> ${event.date} à ${event.time}</p>`;
+    html += `<p><b>${formatDate(event.date)}</b> ${event.time}</p>`;
   }
-  html += `<p><strong>${event.place}</strong> - ${event.address}</p>`;
+  html += `<p><b>${event.place}</b> - ${event.address}</p>`;
   if (event.photo) {
     html += `<img src="${event.photo}" alt="Photo de l'événement" style="max-width: 100%; height: auto; margin-top: 10px;">`;
   }
   const info = document.getElementById('event-info');
   info.innerHTML = html;
   info.style.display = 'block';
-
-  // Ajouter l'event listener pour fermer
   document.getElementById('close-info').addEventListener('click', function() {
     info.style.display = 'none';
   });
 }
 
 function addMarker(ev) {
-  const marker = L.circleMarker([ev.lat, ev.lng], {
-    radius: 8,
-    color: '#b800ff',
-    fillColor: '#b800ff',
-    fillOpacity: 0.9,
-    weight: 2
-  }).addTo(map);
+  const arrowIcon = L.divIcon({
+    className: 'arrow-marker-wrapper',
+    html: '<div class="arrow-marker"><div class="pin-head"></div></div>',
+    iconSize: [24, 34],
+    iconAnchor: [12, 34],
+    popupAnchor: [0, -34]
+  });
+  const marker = L.marker([ev.lat, ev.lng], { icon: arrowIcon }).addTo(map);
   marker.on('click', function(e) {
     L.DomEvent.stopPropagation(e);
     showEventInfo(ev);

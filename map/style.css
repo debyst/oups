@@ -102,43 +102,75 @@ main {
 .event-panel {
   position: fixed;
   right: 1em;
-  top: 200px;
-  width: 360px;
+  top: 150px;
+  width: 340px;
   z-index: 1100;
-  background: rgba(20, 20, 20, 0.96);
-  border: 1px solid #333;
-  border-radius: 14px;
-  padding: 1em;
-  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+  background: rgba(12, 12, 12, 0.95);
+  border: 1px solid #444;
+  border-radius: 12px;
+  padding: 0.8em;
+  box-shadow: 0 0 16px rgba(0,0,0,0.7);
+  color: #fff;
 }
 
 .hidden { display: none !important; }
 
+.event-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5em;
+}
+
+#event-panel h3 {
+  margin: 0;
+  font-size: 1.4em;
+  color: #b800ff;
+}
+
+#event-panel .event-panel-header button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.2em;
+  cursor: pointer;
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+
 #event-panel label {
   display: block;
-  margin: 1em 0 0.3em;
-  color: #b800ff;
+  margin: 0.3em 0;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.95em;
 }
 
 #event-panel input,
 #event-panel textarea {
   width: 100%;
-  background: #111;
-  border: 1px solid #333;
+  margin-bottom: 0.5em;
+  background: #222;
+  border: 1px solid #555;
   color: #fff;
-  border-radius: 8px;
-  padding: 0.7em;
+  border-radius: 6px;
+  padding: 0.4em;
+  font-size: 1em;
+  font-family: inherit;
+  box-sizing: border-box;
 }
 
-#event-panel button {
-  margin-top: 1em;
-  padding: 0.8em 1em;
-  width: 100%;
-  border: none;
-  border-radius: 8px;
+#event-panel button[type='submit'] {
   background: #b800ff;
+  border: none;
   color: #fff;
+  width: 100%;
+  border-radius: 6px;
+  padding: 0.5em;
+  font-size: 1em;
   cursor: pointer;
+  margin-top: 0.5em;
 }
 
 #event-info {
@@ -147,13 +179,13 @@ main {
   top: 200px;
   width: 340px;
   max-height: calc(100vh - 220px);
-  background: rgba(20,20,20,0.95);
-  border: 1px solid #333;
-  border-radius: 12px;
+  background: rgba(20,20,20,0.9);
+  border: 1px solid #444;
+  border-radius: 10px;
   padding: 1em;
   display: none;
-  box-shadow: 0 0 24px rgba(0,0,0,0.7);
-  z-index: 1000;
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+  z-index: 1100;
   overflow-y: auto;
 }
 
@@ -161,12 +193,18 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.3em;
 }
 
-.event-info-header h3 {
+.event-info-header h2 {
   margin: 0;
-  color: #b800ff;
+  color: #fff;
+  font-size: 1.2em;
+}
+
+#event-info p {
+  color: #fff;
+  margin: 0.3em 0;
 }
 
 .event-info-header button {
@@ -184,6 +222,35 @@ main {
   font-size: 1.1em;
   color: #fff;
   text-shadow: 1px 1px 0 #000;
+}
+
+/* Marqueur flèche/pin sur la carte */
+.arrow-marker {
+  width: 24px;
+  height: 34px;
+  position: relative;
+}
+.arrow-marker .pin-head {
+  width: 24px;
+  height: 24px;
+  background: #b800ff;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 0 6px rgba(184, 0, 255, 0.8);
+  position: relative;
+}
+.arrow-marker .pin-head::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 10px solid #b800ff;
+  filter: drop-shadow(0 0 3px rgba(184, 0, 255, 0.6));
 }
 
 /* Contrôle info pour la carte */
@@ -235,6 +302,7 @@ main {
 .event-line {
   margin: 0.3em 0;
   font-size: 1.5em;
+  font-weight: 300;
 }
 
 .event-line a {
@@ -242,10 +310,15 @@ main {
   text-decoration: none;
   cursor: pointer;
   font-weight: bold;
+  font-size: 1.1em;
 }
 
 .event-line a:hover {
   text-decoration: underline;
+}
+
+.event-line .artist-name {
+  font-style: italic;
 }
 
 .coming-soon {

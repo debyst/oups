@@ -7,7 +7,7 @@ function renderEvents() {
   }
   let html = stored.map((event, index) => {
     const parts = [];
-    if (event.artist) parts.push(event.artist);
+    if (event.artist) parts.push(`<span class="artist-name">${event.artist}</span>`);
     if (event.place) parts.push(event.place);
     if (event.address) parts.push(event.address);
     if (event.time) parts.push(event.time);
