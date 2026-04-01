@@ -1,27 +1,33 @@
 @font-face {
-  font-family: 'FlorDeRuina';
-  src: url('./typo/FlorDeRuina-Ruina.otf') format('opentype');
+  font-family: 'ArialCustom';
+  src: url('./typo/arial.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'FlorDeRuinaFractura';
-  src: url('./typo/FlorDeRuina-Fractura.otf') format('opentype');
-  font-weight: normal;
+  font-family: 'ArialCustom';
+  src: url('./typo/arialbd.ttf') format('truetype');
+  font-weight: bold;
   font-style: normal;
 }
 @font-face {
-  font-family: 'FlorDeRuinaFlor';
-  src: url('./typo/FlorDeRuina-Flor.otf') format('opentype');
+  font-family: 'ArialCustom';
+  src: url('./typo/ariali.ttf') format('truetype');
   font-weight: normal;
-  font-style: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'ArialCustom';
+  src: url('./typo/arialbi.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
 }
 
 body {
   margin: 0;
   background: #000;
   color: #fff;
-  font-family: 'FlorDeRuina', Arial, sans-serif;
+  font-family: 'ArialCustom', Arial, sans-serif;
 }
 
 header {
