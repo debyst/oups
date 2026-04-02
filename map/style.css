@@ -259,7 +259,7 @@ main {
   cursor: pointer;
 }
 .info-control img {
-  height: 300px;
+  height: 220px;
   filter: none;
 }
 
@@ -518,7 +518,7 @@ main {
 
   /* Info control (How does it work) */
   .info-control img {
-    height: 24px !important;
+    height: 50px !important;
   }
 
   /* Event info panel */
