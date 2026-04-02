@@ -1,10 +1,15 @@
 const list = document.getElementById('events-list');
 
 async function renderEvents() {
-  const events = await loadEventsFromDB();
+  let events = await loadEventsFromDB();
   if (!events.length) {
     list.innerHTML = '<p>Aucun événement enregistré.</p>';
     return;
+  }
+  // Ordre aléatoire
+  for (let i = events.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [events[i], events[j]] = [events[j], events[i]];
   }
   let html = events.map((event) => {
     const parts = [];

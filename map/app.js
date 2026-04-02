@@ -38,7 +38,7 @@ map.attributionControl.setPrefix('');
 var infoControl = L.control({position: 'bottomleft'});
 infoControl.onAdd = function(map) {
   var div = L.DomUtil.create('div', 'info-control');
-  div.innerHTML = '<button id="info-btn" title="Informations">i</button>';
+  div.innerHTML = '<img src="images/gif qui changent/How does it work 1.gif" alt="Info" style="height:40px; filter:invert(1); cursor:pointer;">';
   L.DomEvent.on(div, 'click', function(e) {
     L.DomEvent.stopPropagation(e);
     if (creditsVisible) {
@@ -50,7 +50,7 @@ infoControl.onAdd = function(map) {
     } else {
       creditsPopup = L.popup()
         .setLatLng(map.getCenter())
-        .setContent('oups@cutey.com, website made by <em>Toni!</em>')
+        .setContent("<div style='text-align:center;'>to share your intervention, click on the map where your artwork is and share how much information you like<br><br>website made by <b><em>Toni!</em></b></div>")
         .openOn(map);
       creditsVisible = true;
     }
