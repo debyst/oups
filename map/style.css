@@ -498,17 +498,22 @@ main {
   header {
     padding: 0.6em 0.8em;
     flex-wrap: nowrap;
+    background: transparent;
   }
   .logo-oups {
-    width: 120px;
-    height: 65px;
+    width: 200px;
+    height: 110px;
     margin-left: 0;
+  }
+  .logo-oups img {
+    filter: none;
   }
   .main-menu ul {
     gap: 0.8em;
   }
   .menu-gif {
     height: 60px;
+    filter: none;
   }
 
   /* Map page */
