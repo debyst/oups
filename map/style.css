@@ -49,6 +49,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 2em;
 }
 .logo-oups img {
   max-width: 100%;
@@ -489,4 +490,97 @@ main {
   color: #b800ff;
   font-size: 1.25em;
   margin: 0.1em 0;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  /* Header */
+  header {
+    padding: 0.6em 0.8em;
+    flex-wrap: nowrap;
+  }
+  .logo-oups {
+    width: 120px;
+    height: 65px;
+    margin-left: 0;
+  }
+  .main-menu ul {
+    gap: 0.8em;
+  }
+  .menu-gif {
+    height: 60px;
+  }
+
+  /* Map page */
+  main {
+    padding-top: 80px;
+  }
+
+  /* Info control (How does it work) */
+  .info-control img {
+    height: 24px !important;
+  }
+
+  /* Event info panel */
+  #event-info {
+    left: 0.5em;
+    right: 0.5em;
+    top: 90px;
+    width: auto;
+    max-height: calc(100vh - 100px);
+  }
+
+  /* Event creation panel */
+  .event-panel {
+    right: 0.5em;
+    left: 0.5em;
+    top: 90px;
+    width: auto;
+  }
+
+  /* Events list page */
+  .events-page {
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 100px;
+  }
+  .event-line {
+    font-size: 1.1em;
+  }
+  .event-line .artist-name {
+    font-size: 1.2em;
+  }
+
+  /* Propose / About page */
+  .propose-form-section {
+    max-width: 100%;
+  }
+
+  /* Event detail page */
+  .event-detail-page {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  .event-detail-page .event-detail-content {
+    flex-direction: column;
+    gap: 1em;
+  }
+  .event-detail-page .event-detail-side {
+    width: 100%;
+    text-align: left;
+  }
+  .event-detail-page .event-detail-info h2 {
+    font-size: 1.4em;
+    white-space: normal;
+  }
+  .event-detail-page .event-detail-photo {
+    width: 100%;
+    min-width: unset;
+  }
+
+  /* Admin page */
+  .admin-page {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 }

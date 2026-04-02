@@ -38,7 +38,7 @@ map.attributionControl.setPrefix('');
 var infoControl = L.control({position: 'bottomleft'});
 infoControl.onAdd = function(map) {
   var div = L.DomUtil.create('div', 'info-control');
-  div.innerHTML = '<img src="images/gif qui changent/How does it work 1.gif" alt="Info" style="height:40px; filter:invert(1); cursor:pointer;">';
+  div.innerHTML = '<img src="images/gif qui changent/How does it work 1.gif" alt="Info" style="filter:invert(1); cursor:pointer;">';
   L.DomEvent.on(div, 'click', function(e) {
     L.DomEvent.stopPropagation(e);
     if (creditsVisible) {
