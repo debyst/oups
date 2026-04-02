@@ -35,3 +35,35 @@ async function updateEventInDB(docId, eventData) {
 async function deleteEventFromDB(docId) {
   await eventsCollection.doc(docId).delete();
 }
+
+// Compression d'image côté client (max 1600px, JPEG qualité 0.8)
+function compressImage(file) {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const img = new Image();
+      img.onload = function() {
+        const canvas = document.createElement('canvas');
+        let w = img.width;
+        let h = img.height;
+        const maxSize = 1600;
+        if (w > maxSize || h > maxSize) {
+          if (w > h) {
+            h = Math.round(h * maxSize / w);
+            w = maxSize;
+          } else {
+            w = Math.round(w * maxSize / h);
+            h = maxSize;
+          }
+        }
+        canvas.width = w;
+        canvas.height = h;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, w, h);
+        resolve(canvas.toDataURL('image/jpeg', 0.8));
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}

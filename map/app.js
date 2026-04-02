@@ -200,13 +200,9 @@ eventForm.addEventListener('submit', async function(e) {
   }
 
   if (photoInput.files && photoInput.files[0]) {
-    const file = photoInput.files[0];
-    const reader = new FileReader();
-    reader.onload = async function(e) {
-      newEvent.photo = e.target.result;
-      await saveAndShow(newEvent);
-    };
-    reader.readAsDataURL(file);
+    const compressed = await compressImage(photoInput.files[0]);
+    newEvent.photo = compressed;
+    await saveAndShow(newEvent);
   } else {
     await saveAndShow(newEvent);
   }

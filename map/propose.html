@@ -74,12 +74,9 @@
       }
 
       if (photoInput.files && photoInput.files[0]) {
-        const reader = new FileReader();
-        reader.onload = async function(e) {
-          newEvent.photo = e.target.result;
-          await saveAndRedirect(newEvent);
-        };
-        reader.readAsDataURL(photoInput.files[0]);
+        const compressed = await compressImage(photoInput.files[0]);
+        newEvent.photo = compressed;
+        await saveAndRedirect(newEvent);
       } else {
         await saveAndRedirect(newEvent);
       }
