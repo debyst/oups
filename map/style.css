@@ -37,15 +37,14 @@ a:hover {
 
 /* Optional: transparent purple text selection */
 ::selection {
-  background-color: rgba(128, 0, 128, 0.5);
+  background-color: rgba(180, 0, 255, 0.7);
   color: #ffffff;
 }
 
 ::-moz-selection {
-  background-color: rgba(128, 0, 128, 0.5);
+  background-color: rgba(180, 0, 255, 0.7);
   color: #ffffff;
 }
-
 header {
   position: fixed;
   top: 0;
