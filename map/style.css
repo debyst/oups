@@ -304,9 +304,16 @@ main {
 
 /* Page Events */
 .events-page {
-  padding-left: 25%;
+  padding-left: 15%;
   padding-right: 2em;
   padding-top: 200px;
+}
+
+.events-instruction {
+  color: #aaa;
+  font-size: 1em;
+  margin-bottom: 1em;
+  font-style: italic;
 }
 
 .event-line {
