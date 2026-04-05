@@ -28,7 +28,8 @@ body {
   background: #000;
   color: #fff;
   font-family: 'ArialCustom', Arial, sans-serif;
-
+cursor: url('images/dolphin.png') 16 16, auto; /* normal cursor */
+}
 
 
 }
