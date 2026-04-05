@@ -31,7 +31,8 @@ body {
 cursor: url('images/dolphin.png') 16 16, auto; /* normal cursor */
 }
 
-
+a:hover {
+  cursor: url('images/dolphinLINK.png') 16 16, pointer; /* hover over links */
 }
 
 header {
