@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>💋OUPS Festival 9-11</title>
+  <title>OUPS! Festival  9-11 April</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+ <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/LogO.png">
 </head>
 <body>
   <header>
@@ -22,6 +24,19 @@
   </header>
   <main>
     <div id="map"></div>
+
+<div class="info-box" id="infoBox"></div>
+
+<script>
+  const messages = [
+    "Welcome to OUPS Festival!",
+    "Don’t miss our next event."
+  ];
+
+  document.getElementById("infoBox").innerHTML =
+    messages.map(m => ⁠ <p>${m}</p> ⁠).join("");
+</script>
+    
     <div id="event-panel" class="event-panel hidden">
       <div class="event-panel-header">
         <h3>Nouvel événement</h3>
