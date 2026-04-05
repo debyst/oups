@@ -30,14 +30,16 @@
       <form id="event-form">
         <label>Coords <span id="coords"></span></label>
         <input type="text" id="title" name="title" placeholder="Titre" required>
-        <input type="text" id="artist" name="artist" placeholder="Nom d'artiste" required>
-        <input type="date" id="date" name="date" required>
-        <input type="time" id="time" name="time" required>
-        <input type="text" id="place" name="place" placeholder="Lieu" required>
-        <input type="text" id="address" name="address" placeholder="Adresse du lieu" required>
-        <textarea id="description" name="description" placeholder="Description" rows="3" required></textarea>
-        <label for="photo">Photo (optionnel)</label>
-        <input type="file" id="photo" name="photo" accept="image/*">
+        <input type="text" id="artist" name="artist" placeholder="Nom d'artiste">
+        <input type="date" id="date" name="date">
+        <input type="time" id="time" name="time">
+        <input type="date" id="date-end" name="date-end" placeholder="Date de fin">
+        <input type="text" id="place" name="place" placeholder="Lieu">
+        <input type="text" id="address" name="address" placeholder="Adresse du lieu">
+        <input type="text" id="contact" name="contact" placeholder="Contact">
+        <textarea id="description" name="description" placeholder="Description" rows="3"></textarea>
+        <label for="photo">Photo / Vidéo / GIF (optionnel)</label>
+        <input type="file" id="photo" name="photo" accept="image/*,video/*,.gif">
         <button type="submit">Ajouter</button>
       </form>
     </div>
