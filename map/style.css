@@ -533,6 +533,24 @@ main {
   margin: 0.1em 0;
 }
 
+/* pulsating ring and enlargend pin */
+.arrow-marker.active {
+  transform: scale(1.4);
+  filter: drop-shadow(0 0 6px var(--marker-color));
+  z-index: 1000 !important;
+}
+
+.arrow-marker.active .pin-head {
+  animation: pulse 5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--marker-color); }
+  50%       { box-shadow: 0 0 0 8px transparent; }
+}
+
+
+
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
   /* Header */
